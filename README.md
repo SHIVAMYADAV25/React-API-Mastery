@@ -1,73 +1,171 @@
-# React + TypeScript + Vite
+# FreeAPI UI Collection
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Web Dev Cohort 2026 Project**
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Overview
 
-## React Compiler
+This project is a collection of multiple React-based user interfaces built using FreeAPI endpoints. Each module demonstrates how to fetch, process, and display different types of data in a structured and user-friendly layout.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The project focuses on building a strong foundation in API integration, reusable UI design, and consistent frontend architecture.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Modules Included
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+* YouTube Videos Listing
+* Product Listing
+* Quotes Viewer
+* Jokes Viewer
+* Random Cat Viewer
+* Meals Listing
+* Random Users UI
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## API Endpoints
+
+| Module         | Endpoint                                                                                                       |
+| -------------- | -------------------------------------------------------------------------------------------------------------- |
+| YouTube Videos | [https://api.freeapi.app/api/v1/public/youtube/videos](https://api.freeapi.app/api/v1/public/youtube/videos)   |
+| Products       | [https://api.freeapi.app/api/v1/public/randomproducts](https://api.freeapi.app/api/v1/public/randomproducts)   |
+| Quotes         | [https://api.freeapi.app/api/v1/public/quotes](https://api.freeapi.app/api/v1/public/quotes)                   |
+| Jokes          | [https://api.freeapi.app/api/v1/public/randomjokes](https://api.freeapi.app/api/v1/public/randomjokes)         |
+| Cats           | [https://api.freeapi.app/api/v1/public/cats/cat/random](https://api.freeapi.app/api/v1/public/cats/cat/random) |
+| Meals          | [https://api.freeapi.app/api/v1/public/meals](https://api.freeapi.app/api/v1/public/meals)                     |
+| Users          | [https://api.freeapi.app/api/v1/public/randomusers](https://api.freeapi.app/api/v1/public/randomusers)         |
+
+---
+
+## Tech Stack
+
+* React.js with TypeScript
+* Vite (Build tool)
+* CSS or Tailwind CSS
+* Fetch API
+
+---
+
+## Project Structure
+
+```
+src/
+ ├── assets/
+ ├── pages/
+ │    ├── AuthenticationApp.tsx
+ │    ├── Home.tsx
+ │    ├── Meal.tsx
+ │    ├── RandomCats.tsx
+ │    ├── RandomJokes.tsx
+ │    ├── RandomProducts.tsx
+ │    ├── RandomQuotes.tsx
+ │    ├── RandomUser.tsx
+ │    ├── YoutubeVideo.tsx
+ │
+ ├── App.tsx
+ ├── App.css
+ ├── index.css
+ ├── main.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Application Flow
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Application initializes
+2. A page component is rendered
+3. API request is triggered using `useEffect`
+4. Response data is stored in component state
+5. Data is mapped and rendered into UI
+
+---
+
+## Core Pattern
+
+Each module follows the same architecture:
+
 ```
+Fetch API → Store in State → Map Data → Render UI
+```
+
+This consistency ensures scalability and maintainability.
+
+---
+
+## Example API Fetch
+
+```javascript
+useEffect(() => {
+  async function fetchData() {
+    const res = await fetch("API_URL");
+    const data = await res.json();
+    setState(data.data);
+  }
+
+  fetchData();
+}, []);
+```
+
+---
+
+## UI Design Principles
+
+* Clean and structured layout
+* Card-based design system
+* Responsive across devices
+* Consistent spacing and typography
+
+---
+
+## Features
+
+* Multiple API integrations in a single project
+* Dynamic rendering of real-time data
+* Reusable UI patterns
+* Modular page-based structure
+* Basic interactivity (refresh, load, navigation-ready structure)
+
+---
+
+## Challenges
+
+* Handling different API response structures
+* Managing multiple independent states
+* Maintaining UI consistency across modules
+* Implementing proper loading and error handling
+
+---
+
+## Submission
+
+* Live Project: Add your deployed link
+* GitHub Repository: Add your repository link
+
+---
+
+## Key Learnings
+
+* Working with REST APIs in React
+* Structuring scalable frontend applications
+* Component-based UI development
+* Data mapping and rendering techniques
+* Handling asynchronous operations
+
+---
+
+## Future Improvements
+
+* Integrate React Router for navigation
+* Introduce global state management
+* Add search and filtering capabilities
+* Improve UI with animations and transitions
+* Convert into a unified dashboard interface
+
+---
+
+## Conclusion
+
+This project demonstrates the ability to build multiple independent UI modules using a consistent architecture. It reflects practical understanding of API-driven development and lays the groundwork for more complex frontend systems.
+
+---
