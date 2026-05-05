@@ -139,8 +139,8 @@ useEffect(() => {
 
 ## Submission
 
-* Live Project: Add your deployed link
-* GitHub Repository: Add your repository link
+* Live Project: [Add your deployed link](https://react-api-mastery-zrki.vercel.app/)
+* GitHub Repository: [Add your repository link](https://github.com/SHIVAMYADAV25/React-API-Mastery)
 
 ---
 
